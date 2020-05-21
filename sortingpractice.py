@@ -35,6 +35,6 @@ if __name__ == '__main__':
             sys.exit("Both Array Size and Array Limit must be integers")
     arr = generateList(int(sys.argv[1]), int(sys.argv[2]))
     if not arr:
-        print('TODO')
+        sys.exit("The first parameter must be smaller than the second.")
     else:
         bubbleSort(arr)
