@@ -64,6 +64,12 @@ def mergeSort(arr):
 def insertSort(arr):
     start = time.time()
     print('Beginning Insertion Sort . . . ( N = ', len(arr), ')')
+    for idx in range (1, len(arr)):
+        target = idx
+        while target > 0 and arr[target-1] > arr[target]:
+            arr[target-1] = arr[target]
+            target =- 1
+        idx =+ 1
     end = time.time()
     print('Insertion Sort finished in ', end-start ,'seconds')
 
@@ -93,3 +99,4 @@ if __name__ == '__main__':
         mergeSort(arr)
         end = time.time()
         print('Merge Sort finished in ', end-start ,'seconds')
+        insertSort(arr)
