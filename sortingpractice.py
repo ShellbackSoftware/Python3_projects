@@ -29,6 +29,56 @@ def bubbleSort(arr):
     end = time.time()
     print('Bubble Sort finished in ', end-start ,'seconds')
 
+def mergeSort(arr):
+    arrLength = len(arr)
+    if arrLength > 1:
+        mid =  arrLength // 2
+        leftArr = arr[:mid]
+        rightArr = arr[mid:]
+        # Sort both halves
+        mergeSort(leftArr)
+        mergeSort(rightArr)
+
+        leftIndex = rightIndex = index = 0
+        # Utilize the two temp arrays
+        while leftIndex < len(leftArr) and rightIndex < len(rightArr):
+            if(leftArr[leftIndex] < rightArr[rightIndex]):
+                arr[index] = leftArr[leftIndex]
+                leftIndex += 1
+            else:
+                arr[index] = rightArr[rightIndex]
+            index += 1
+
+        # Check for remaining items
+        while leftIndex < len(leftArr):
+            arr[index] = leftArr[leftIndex]
+            leftIndex += 1
+            index =+ 1
+
+        while rightIndex < len(rightArr):
+            arr[index] = rightArr[rightIndex]
+            rightIndex += 1
+            index =+ 1
+
+
+def insertSort(arr):
+    start = time.time()
+    print('Beginning Insertion Sort . . . ( N = ', len(arr), ')')
+    end = time.time()
+    print('Insertion Sort finished in ', end-start ,'seconds')
+
+def selectSort(arr):
+    start = time.time()
+    print('Beginning Selection Sort . . . ( N = ', len(arr), ')')
+    end = time.time()
+    print('Selection Sort finished in ', end-start ,'seconds')
+
+def quickSort(arr):
+    start = time.time()
+    print('Beginning Quick Sort . . . ( N = ', len(arr), ')')
+    end = time.time()
+    print('Quick Sort finished in ', end-start ,'seconds')
+
 if __name__ == '__main__':
     for arg in sys.argv[1:]:
         if not is_int(arg):
@@ -38,3 +88,8 @@ if __name__ == '__main__':
         sys.exit("The first parameter must be smaller than the second.")
     else:
         bubbleSort(arr)
+        print('Beginning Merge Sort . . . ( N = ', len(arr), ')')
+        start = time.time()
+        mergeSort(arr)
+        end = time.time()
+        print('Merge Sort finished in ', end-start ,'seconds')
