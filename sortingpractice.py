@@ -47,6 +47,7 @@ def mergeSort(arr):
                 leftIndex += 1
             else:
                 arr[index] = rightArr[rightIndex]
+                rightIndex += 1
             index += 1
 
         # Check for remaining items
@@ -93,7 +94,7 @@ if __name__ == '__main__':
     if not arr:
         sys.exit("The first parameter must be smaller than the second.")
     else:
-        bubbleSort(arr)
+        #bubbleSort(arr)
         print('Beginning Merge Sort . . . ( N = ', len(arr), ')')
         start = time.time()
         mergeSort(arr)
