@@ -80,11 +80,22 @@ def selectSort(arr):
     end = time.time()
     print('Selection Sort finished in ', end-start ,'seconds')
 
-def quickSort(arr):
-    start = time.time()
-    print('Beginning Quick Sort . . . ( N = ', len(arr), ')')
-    end = time.time()
-    print('Quick Sort finished in ', end-start ,'seconds')
+def quickSort(arr, low, high):
+    if low < high:
+        pidx = partition(arr, low, high)
+        quickSort(arr, low, pidx - 1)
+        quickSort(arr, pidx + 1, high)
+
+def partition(arr, low, high):
+    pivot = arr[high]
+    idx = (low - 1)
+    for target in range(low, high):
+        if arr[target] < pivot:
+            idx += 1
+            arr[idx], arr[target] = arr[target], arr[idx]
+        target += 1
+    arr[idx + 1], arr[high] = arr[high], arr[idx + 1]
+    return idx + 1
 
 if __name__ == '__main__':
     for arg in sys.argv[1:]:
@@ -101,3 +112,8 @@ if __name__ == '__main__':
         end = time.time()
         print('Merge Sort finished in ', end-start ,'seconds')
         insertSort(arr)
+        print('Beginning Quick Sort . . . ( N = ', len(arr), ')')
+        start = time.time()
+        quickSort(arr, 0, len(arr)-1)
+        end = time.time()
+        print('Quick Sort finished in ', end-start ,'seconds')
