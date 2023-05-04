@@ -5,14 +5,14 @@ Created with tkinter and OOP.
 
 Simple Hangman game with a GUI that pulls a random word from a text file.
 
-Fresh game:
+Fresh game:<br/>
 ![New game](images/GUI_newgame.JPG)
 
-Incorrect guess:
+Incorrect guess:<br/>
 ![Wrong letter](images/GUI_wrongletter.JPG)
 
-Did not find the word:
+Did not find the word:<br/>
 ![Wrong word](images/GUI_wrongword.JPG)
 
-Word was found:
+Word was found:<br/>
 ![Success](images/GUI.JPG)
