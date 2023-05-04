@@ -2,11 +2,6 @@ import random
 import string
 
 class Hangman:
-    word_list = ["Awkward", "Bagpipes", "Banjo", "Bungler", "Croquet", "Crypt", "Dwarves", "Fiery", "Fishhook", "Fjord",
-                "Gazebo", "Gypsy", "Haiku", "Haphazard", "Hyphen", "Ivory", "Jazzy", "Jiffy", "Jinx", "Jukebox", "Kayak",
-                "Oxygen", "Pajama", "Phlegm", "Polka", "Quad", "Quip", "Sarcastic", "Rhythmic", "Zealous", "Wildebeast",
-                "Jumanji", "Mushroom", "Computer", "Laptop", "Rude", "Telephone", "Alive", "Deep", "Noble", "Swift"]
-
     # Default 6 wrong guesses - Head, torso, arms, legs
     max_wrong_guesses = 6
     guessed_letters = []
@@ -18,7 +13,7 @@ class Hangman:
 
     # Pulls a random word from the word list
     def new_word(self):
-        word = self.word_list[random.randint(0,len(self.word_list)-1)].lower()
+        word = random.choice(list(open('words.txt'))).rstrip()
         self.curWord = word
         return word
 
