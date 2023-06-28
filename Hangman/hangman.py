@@ -1,6 +1,7 @@
 import random
 import string
 
+
 class Hangman:
     # Default 6 wrong guesses - Head, torso, arms, legs
     max_wrong_guesses = 6
@@ -8,7 +9,7 @@ class Hangman:
     curWord = ''
     wrongGuesses = 0
 
-    def __init__(self, max_guess = 6):
+    def __init__(self, max_guess=6):
         self.max_wrong_guesses = max_guess
 
     # Pulls a random word from the word list
@@ -47,7 +48,8 @@ class Hangman:
                 if letter in self.curWord:
                     return 'Letter {} found'.format(letter)
                 else:
-                    msg = "Letter {} not found! You have {} guesses remaining.".format(letter, self.max_wrong_guesses-self.wrongGuesses)
+                    msg = "Letter {} not found! You have {} guesses remaining.".format(letter,
+                                                                                       self.max_wrong_guesses - self.wrongGuesses)
                     self.wrongGuesses += 1
                     return msg
         else:
